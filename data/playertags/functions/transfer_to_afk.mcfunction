@@ -1,0 +1,16 @@
+execute if entity @s[team=pt_aa] run team join pt_ba @s
+execute if entity @s[team=pt_ab] run team join pt_bb @s
+execute if entity @s[team=pt_ac] run team join pt_bc @s
+execute if entity @s[team=pt_ad] run team join pt_bd @s
+execute if entity @s[team=pt_ae] run team join pt_be @s
+execute if entity @s[team=pt_af] run team join pt_bf @s
+execute if entity @s[team=pt_ag] run team join pt_bg @s
+execute if entity @s[team=pt_ah] run team join pt_bh @s
+execute if entity @s[team=pt_ai] run team join pt_bi @s
+execute if entity @s[team=pt_aj] run team join pt_bj @s
+execute if entity @s[team=pt_ak] run team join pt_bk @s
+execute if entity @s[team=pt_al] run team join pt_bl @s
+execute if entity @s[team=pt_am] run team join pt_bm @s
+execute if entity @s[team=pt_an] run team join pt_bn @s
+execute if entity @s[team=pt_ao] run team join pt_bo @s
+execute if entity @s[team=pt_ap] run team join pt_bp @s
