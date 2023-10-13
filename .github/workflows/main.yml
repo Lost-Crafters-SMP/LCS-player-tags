@@ -15,15 +15,19 @@ jobs:
     # zip the file
     - name: Create Zip Folder
       run: zip -r datapack.zip . -x ".git/*" ".github/*"
+    # get latest release
+    - id: release
+      uses: pozetroninc/github-action-get-latest-release@master
+      with:
+        repository: ${{ github.repository }}
     # release on github
     - name: Release to github
-      uses: svenstaro/upload-release-action@v2
+      uses: xresloader/upload-to-github-release@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: datapack.zip
-        asset_name: datapack
-        tag: ${{ github.ref }}
+        file: "datapack.zip"
+        delete_file: "datapack.zip"
+        release_id: ${{ steps.release.outputs.id }}
         overwrite: true
-    # remove the zip
-    - name: Remove Zip Folder
-      run: rm datapack.zip
+        verbose: true
