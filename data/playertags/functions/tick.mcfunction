@@ -2,12 +2,13 @@
 scoreboard players add @a pt_afk 0
 
 # Set a player's team if they haven't joined one
-execute as @a if score enabled player_tags matches 1 if entity @s[team=] run scoreboard players enable @s player_tags
-execute as @a if score enabled player_tags matches 1 if entity @s[team=] run scoreboard players set @s player_tags -1
 execute as @a if score enabled player_tags matches 1 if entity @s[team=] run team join pt_am @s
 
 # Set the player's team
-execute as @a if score enabled player_tags matches 1 if entity @s[scores={player_tags=0..}] run function playertags:join_team
+execute as @a if score enabled player_tags matches 1 if entity @s[scores={player_tags=1..}] run function playertags:join_team
+
+# Enable the objective
+scoreboard players enable @a player_tags
 
 # Remove any afk detectors not near a player
 execute as @e[type=minecraft:text_display,tag=afk_detector] at @s unless entity @a[distance=0..0.0001,scores={pt_afk=0..}] run kill @s
@@ -22,6 +23,6 @@ execute as @a if score enabled player_tags matches 1 unless entity @s[team=pt_zz
 execute as @a if score enabled player_tags matches 1 unless entity @s[team=pt_zz] if score @s pt_afk matches 599 at @s if entity @e[type=minecraft:text_display,tag=afk_detector,distance=0..0.0001] run function playertags:transfer_to_afk
 
 # Summon afk detector
-execute as @a if score enabled player_tags matches 1 unless entity @s[team=pt_zz] at @s unless entity @e[type=minecraft:text_display,tag=afk_detector,distance=0..0.0001] run summon minecraft:text_display ~ ~ ~ {Tags:["afk_detector"]}
+execute as @a if score enabled player_tags matches 1 unless entity @s[team=pt_zz] at @s unless entity @e[type=minecraft:text_display,tag=afk_detector,distance=0..0.0001] run summon minecraft:text_display ~ ~ ~ {Tags:["afk_detector"],default_background:0b,shadow:0b,see_through:1b,alignment:"center",text:'{"text":""}'}
 
 schedule function playertags:tick 1t
