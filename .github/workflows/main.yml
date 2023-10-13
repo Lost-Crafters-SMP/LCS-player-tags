@@ -33,7 +33,7 @@ jobs:
       with:
         file: "datapack.zip"
         delete_file: "datapack.zip"
-        # release_id: ${{ steps.release.outputs.id }}
-        tags: ${{ github.ref }}
+        release_id: ${{ steps.release.outputs.id }}
+        # tags: ${{ github.ref }}
         overwrite: true
         verbose: true
