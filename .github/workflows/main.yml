@@ -1,0 +1,29 @@
+name: zip datapack
+
+on:
+  # run on every release
+  push:
+    tags:
+    - '*'
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    # zip the file
+    - name: Create Zip Folder
+      run: zip -r datapack.zip . -x ".git/*" ".github/*"
+    # release on github
+    - name: Release to github
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: datapack.zip
+        asset_name: datapack
+        tag: ${{ github.ref }}
+        overwrite: true
+    # remove the zip
+    - name: Remove Zip Folder
+      run: rm datapack.zip
