@@ -11,6 +11,8 @@ on:
 
 jobs:
   zip:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +33,7 @@ jobs:
       with:
         file: "datapack.zip"
         delete_file: "datapack.zip"
-        release_id: ${{ steps.release.outputs.id }}
+        # release_id: ${{ steps.release.outputs.id }}
+        tags: ${{ github.ref }}
         overwrite: true
         verbose: true
