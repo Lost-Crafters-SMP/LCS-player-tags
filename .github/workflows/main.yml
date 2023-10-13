@@ -1,6 +1,9 @@
 name: zip datapack
 
 on:
+  # allows to manually run the job at any time
+  workflow_dispatch:
+
   # run on every release
   push:
     tags:
