@@ -21,6 +21,7 @@ jobs:
     - id: release
       uses: pozetroninc/github-action-get-latest-release@master
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
     # zip the file
     - name: Create Zip Folder
