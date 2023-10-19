@@ -1,6 +1,10 @@
 scoreboard objectives add player_tags trigger ["Player Tags"]
+scoreboard objectives add pt_options dummy ["Player Tags - Options"]
+scoreboard objectives add pt_options_admin dummy ["Player Tags - Admin Options"]
 scoreboard objectives add pt_afk dummy ["Player Tags - AFK Timer"]
-scoreboard players set enabled player_tags 1
+
+execute unless score enabled pt_options_admin matches 0..1 run scoreboard players set enabled pt_options_admin 1
+execute unless score timer pt_options_admin matches 0.. run scoreboard players set timer pt_options_admin 6000
 
 team add pt_aa "Dark Red"
 team add pt_ab "Red"
