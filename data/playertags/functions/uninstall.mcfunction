@@ -1,4 +1,5 @@
 scoreboard objectives remove player_tags
+scoreboard objectives remove pt_options
 scoreboard objectives remove pt_afk
 
 team remove pt_aa
