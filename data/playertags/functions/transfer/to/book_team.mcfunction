@@ -1,0 +1,2 @@
+execute if block ~ ~ ~ #minecraft:pressure_plates unless block ~ ~ ~ #minecraft:pressure_plates[power=0] unless block ~ ~ ~ #minecraft:pressure_plates[powered=false] as @a[distance=0..0.5] run function playertags:transfer/to/team
+execute if block ~ ~ ~ minecraft:redstone_wire unless block ~ ~ ~ minecraft:redstone_wire[power=0] as @a[distance=0..5] run function playertags:transfer/to/team
